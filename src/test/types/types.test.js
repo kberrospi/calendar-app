@@ -1,5 +1,7 @@
+import { types } from '../../types/types'
+
 describe('Pruebas en types', () => {
-  
+
   test('Los types deben ser iguales ', () => {
 
     expect( types ).toEqual({
