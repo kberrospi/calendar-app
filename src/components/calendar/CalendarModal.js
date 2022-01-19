@@ -18,12 +18,14 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
   },
 };
-Modal.setAppElement('#root');
+if( process.env.NODE_ENV !== 'test' ){
+  Modal.setAppElement('#root');
+}
 const  now = moment().minutes(0).seconds(0).add(1,'hours');
 const nowPlus = now.clone().add(1,'hours');
 
 const initEvent = {
-  title: 'Evento',
+  title: '',
   notes: '',
   start: now.toDate(),
   end: nowPlus.toDate()
@@ -51,7 +53,7 @@ export const CalendarModal = () => {
 
   const closeModal = () => {
     dispatch( eventSetActive(null) )
-    dispatch(uiCloseModal());
+    dispatch( uiCloseModal() );
     setFormValues( initEvent )
   }
 
@@ -108,6 +110,7 @@ export const CalendarModal = () => {
     <Modal
       isOpen={ modalOpen }
       /* onAfterOpen={afterOpenModal}*/
+      ariaHideApp={ !process.env.NODE_ENV === 'test' }
       onRequestClose={closeModal}
       style={customStyles}
       className='modal'
