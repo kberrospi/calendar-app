@@ -1,5 +1,5 @@
 # Deployed
-at the follow link:  https://mern-calendar-keivin.herokuapp.com/
+at the following link:  https://mern-calendar-keivin.herokuapp.com/
 
 # Getting Started with Create React App
 
